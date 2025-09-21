@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class=""><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Cokelat-La - Premium Indonesian chocolate brand offering artisanal chocolates, truffles, and confections">
+    <meta name="author" content="Cokelat-La">
+
+	<title>Home - Cokelat-La</title>
+
+	<!-- Standard Favicon -->
+	<link rel="icon" type="image/x-icon" href="images//favicon.ico" />
+	
+	<!-- For iPhone 4 Retina display: -->
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images//apple-touch-icon-114x114-precomposed.png">
+	
+	<!-- For iPad: -->
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images//apple-touch-icon-72x72-precomposed.png">
+	
+	<!-- For iPhone: -->
+	<link rel="apple-touch-icon-precomposed" href="images//apple-touch-icon-57x57-precomposed.png">	
+	
+	<!-- Custom - Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+	<!-- Custom Text Alignment -->
+	<style>
+		/* Justify text alignment for better readability */
+		p {
+			text-align: justify;
+			text-justify: inter-word;
+		}
+		
+		/* Justify specific content sections */
+		.section-header p,
+		.welcome-content p,
+		.festival-content p,
+		.menu-box p,
+		.team-content p {
+			text-align: justify;
+			text-justify: inter-word;
+			line-height: 1.6;
+		}
+		
+		/* Modern Menu Grid Styles */
+		.modern-menu-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 30px;
+			margin-top: 50px;
+			padding: 0 15px;
+		}
+		
+		.menu-card {
+			background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+			border-radius: 20px;
+			overflow: hidden;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.1), 0 4px 15px rgba(0,0,0,0.05);
+			transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+			position: relative;
+			border: 1px solid rgba(255,255,255,0.2);
+		}
+		
+		.menu-card:hover {
+			transform: translateY(-8px) scale(1.02);
+			box-shadow: 0 20px 40px rgba(0,0,0,0.15), 0 8px 25px rgba(139,69,19,0.1);
+		}
+		
+		.menu-image {
+			position: relative;
+			height: 250px;
+			overflow: hidden;
+		}
+		
+		.menu-image img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.6s ease;
+		}
+		
+		.menu-card:hover .menu-image img {
+			transform: scale(1.1);
+		}
+		
+		.menu-overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: linear-gradient(135deg, rgba(139,69,19,0.1) 0%, rgba(0,0,0,0.05) 100%);
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+		
+		.menu-card:hover .menu-overlay {
+			opacity: 1;
+		}
+		
+		.menu-badge {
+			position: absolute;
+			top: 15px;
+			right: 15px;
+			background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+			color: white;
+			padding: 6px 12px;
+			border-radius: 20px;
+			font-size: 12px;
+			font-weight: 600;
+			letter-spacing: 0.5px;
+			text-transform: uppercase;
+			box-shadow: 0 4px 12px rgba(139,69,19,0.3);
+		}
+		
+		.menu-content {
+			padding: 25px;
+		}
+		
+		.menu-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			margin-bottom: 15px;
+			gap: 15px;
+		}
+		
+		.menu-header h4 {
+			font-size: 20px;
+			font-weight: 700;
+			color: #2c3e50;
+			margin: 0;
+			line-height: 1.3;
+			flex-grow: 1;
+		}
+		
+		.menu-price {
+			background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+			color: white;
+			padding: 8px 16px;
+			border-radius: 25px;
+			font-weight: 700;
+			font-size: 14px;
+			white-space: nowrap;
+			box-shadow: 0 4px 12px rgba(139,69,19,0.2);
+		}
+		
+		.menu-description {
+			color: #7f8c8d;
+			font-size: 14px;
+			line-height: 1.6;
+			margin-bottom: 20px;
+			text-align: justify;
+		}
+		
+		.menu-order-btn {
+			width: 100%;
+			background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+			color: white;
+			border: none;
+			padding: 14px 20px;
+			border-radius: 25px;
+			font-size: 15px;
+			font-weight: 600;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 8px;
+			box-shadow: 0 6px 20px rgba(139,69,19,0.3);
+			position: relative;
+			overflow: hidden;
+		}
+		
+		.menu-order-btn::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+			transition: left 0.5s ease;
+		}
+		
+		.menu-order-btn:hover::before {
+			left: 100%;
+		}
+		
+		.menu-order-btn:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 8px 25px rgba(139,69,19,0.4);
+		}
+		
+		.menu-order-btn:active {
+			transform: translateY(0);
+		}
+		
+		.btn-icon {
+			font-size: 16px;
+			transition: transform 0.3s ease;
+		}
+		
+		.menu-order-btn:hover .btn-icon {
+			transform: scale(1.2);
+		}
+		
+		.btn-text {
+			letter-spacing: 0.3px;
+		}
+		
+		/* Modern Carousel Controls */
+		.modern-carousel-btn {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 60px;
+			height: 60px;
+			background: none !important;
+			border: none;
+			z-index: 100;
+			transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+			opacity: 0.8;
+		}
+		
+		.modern-carousel-btn.left {
+			left: 30px;
+		}
+		
+		.modern-carousel-btn.right {
+			right: 30px;
+		}
+		
+		.carousel-btn-inner {
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(135deg, rgba(139,69,19,0.9) 0%, rgba(101,67,33,0.9) 100%);
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-shadow: 0 8px 25px rgba(139,69,19,0.3), 0 4px 15px rgba(0,0,0,0.1);
+			backdrop-filter: blur(10px);
+			border: 2px solid rgba(255,255,255,0.2);
+			transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+			position: relative;
+			overflow: hidden;
+		}
+		
+		.carousel-btn-inner::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+			transition: left 0.6s ease;
+		}
+		
+		.modern-carousel-btn:hover .carousel-btn-inner::before {
+			left: 100%;
+		}
+		
+		.modern-carousel-btn:hover {
+			opacity: 1;
+			transform: translateY(-50%) scale(1.1);
+		}
+		
+		.modern-carousel-btn:hover .carousel-btn-inner {
+			background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+			box-shadow: 0 12px 35px rgba(139,69,19,0.4), 0 6px 20px rgba(0,0,0,0.15);
+			transform: rotate(360deg);
+		}
+		
+		.modern-carousel-btn i {
+			color: white;
+			font-size: 18px;
+			font-weight: bold;
+			transition: all 0.3s ease;
+			text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+		}
+		
+		.modern-carousel-btn:hover i {
+			transform: scale(1.2);
+			text-shadow: 0 4px 8px rgba(0,0,0,0.4);
+		}
+		
+		.modern-carousel-btn:active .carousel-btn-inner {
+			transform: scale(0.95);
+		}
+		
+		/* Carousel Controls Mobile */
+		@media (max-width: 768px) {
+			.modern-carousel-btn {
+				width: 50px;
+				height: 50px;
+				opacity: 0.9;
+			}
+			
+			.modern-carousel-btn.left {
+				left: 15px;
+			}
+			
+			.modern-carousel-btn.right {
+				right: 15px;
+			}
+			
+			.modern-carousel-btn i {
+				font-size: 16px;
+			}
+		}
+		
+		@media (max-width: 480px) {
+			.modern-carousel-btn {
+				width: 45px;
+				height: 45px;
+			}
+			
+			.modern-carousel-btn.left {
+				left: 10px;
+			}
+			
+			.modern-carousel-btn.right {
+				right: 10px;
+			}
+			
+			.modern-carousel-btn i {
+				font-size: 14px;
+			}
+		}
+		
+		/* Rotating Logo Animation */
+		.rotating-logo {
+			transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+			transform-origin: center center;
+			display: inline-block;
+			animation: gentleRotate 8s linear infinite;
+		}
+		
+		.rotating-logo:hover {
+			animation: fastRotate 1s ease-in-out infinite;
+			transform: scale(1.1);
+			filter: drop-shadow(0 0 10px rgba(139,69,19,0.6));
+		}
+		
+		.navbar-brand:hover .rotating-logo {
+			animation: bounceRotate 1.5s ease-in-out infinite;
+		}
+		
+		/* Logo Animation Keyframes */
+		@keyframes gentleRotate {
+			0% { transform: rotate(0deg); }
+			25% { transform: rotate(5deg) scale(1.02); }
+			50% { transform: rotate(0deg); }
+			75% { transform: rotate(-5deg) scale(1.02); }
+			100% { transform: rotate(0deg); }
+		}
+		
+		@keyframes fastRotate {
+			0% { transform: rotate(0deg) scale(1.1); }
+			100% { transform: rotate(360deg) scale(1.1); }
+		}
+		
+		@keyframes bounceRotate {
+			0%, 100% { 
+				transform: rotate(0deg) scale(1); 
+			}
+			25% { 
+				transform: rotate(10deg) scale(1.1);
+				filter: drop-shadow(0 0 15px rgba(139,69,19,0.7));
+			}
+			50% { 
+				transform: rotate(0deg) scale(1.15);
+				filter: drop-shadow(0 0 20px rgba(139,69,19,0.8));
+			}
+			75% { 
+				transform: rotate(-10deg) scale(1.1);
+				filter: drop-shadow(0 0 15px rgba(139,69,19,0.7));
+			}
+		}
+		
+		/* Logo Pulse Effect */
+		.navbar-brand h3 {
+			position: relative;
+			display: inline-block;
+		}
+		
+		.navbar-brand h3::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 0;
+			height: 0;
+			background: radial-gradient(circle, rgba(139,69,19,0.2) 0%, transparent 70%);
+			border-radius: 50%;
+			transition: all 0.6s ease;
+			z-index: -1;
+		}
+		
+		.navbar-brand:hover h3::after {
+			width: 120px;
+			height: 120px;
+			animation: pulseGlow 2s ease-in-out infinite;
+		}
+		
+		@keyframes pulseGlow {
+			0%, 100% {
+				transform: translate(-50%, -50%) scale(1);
+				opacity: 0.3;
+			}
+			50% {
+				transform: translate(-50%, -50%) scale(1.1);
+				opacity: 0.1;
+			}
+		}
+		
+		/* Footer Logo Animation */
+		.footer-main .rotating-logo {
+			animation: gentleFloat 6s ease-in-out infinite;
+		}
+		
+		.footer-main .rotating-logo:hover {
+			animation: spinFloat 2s ease-in-out infinite;
+		}
+		
+		@keyframes gentleFloat {
+			0%, 100% { 
+				transform: translateY(0) rotate(0deg); 
+			}
+			25% { 
+				transform: translateY(-3px) rotate(2deg); 
+			}
+			50% { 
+				transform: translateY(0) rotate(0deg); 
+			}
+			75% { 
+				transform: translateY(-2px) rotate(-2deg); 
+			}
+		}
+		
+		@keyframes spinFloat {
+			0% { 
+				transform: translateY(0) rotate(0deg) scale(1); 
+			}
+			25% { 
+				transform: translateY(-5px) rotate(90deg) scale(1.05); 
+			}
+			50% { 
+				transform: translateY(0) rotate(180deg) scale(1.1); 
+			}
+			75% { 
+				transform: translateY(-3px) rotate(270deg) scale(1.05); 
+			}
+			100% { 
+				transform: translateY(0) rotate(360deg) scale(1); 
+			}
+		}
+		
+		/* Mobile Logo Animation Adjustments */
+		@media (max-width: 768px) {
+			.rotating-logo {
+				animation: gentleRotate 10s linear infinite;
+			}
+			
+			.navbar-brand h3::after {
+				display: none; /* Disable glow effect on mobile for performance */
+			}
+			
+			@keyframes gentleRotate {
+				0% { transform: rotate(0deg); }
+				50% { transform: rotate(3deg) scale(1.01); }
+				100% { transform: rotate(0deg); }
+			}
+		}
+		
+		@media (max-width: 480px) {
+			.rotating-logo {
+				max-width: 25px;
+				height: auto;
+			}
+			
+			.navbar-brand:hover .rotating-logo {
+				animation: simpleRotate 2s ease-in-out infinite;
+			}
+			
+			@keyframes simpleRotate {
+				0%, 100% { transform: rotate(0deg); }
+				50% { transform: rotate(5deg); }
+			}
+		}
+		
+		/* Mobile Responsive */
+		@media (max-width: 768px) {
+			.modern-menu-grid {
+				grid-template-columns: 1fr;
+				gap: 20px;
+				margin-top: 30px;
+				padding: 0 10px;
+			}
+			
+			.menu-card {
+				border-radius: 15px;
+			}
+			
+			.menu-image {
+				height: 200px;
+			}
+			
+			.menu-content {
+				padding: 20px;
+			}
+			
+			.menu-header {
+				flex-direction: column;
+				align-items: stretch;
+				gap: 10px;
+			}
+			
+			.menu-header h4 {
+				font-size: 18px;
+			}
+			
+			.menu-price {
+				align-self: flex-start;
+				font-size: 13px;
+				padding: 6px 14px;
+			}
+			
+			.menu-description {
+				font-size: 13px;
+				margin-bottom: 15px;
+			}
+			
+			.menu-order-btn {
+				padding: 12px 18px;
+				font-size: 14px;
+			}
+		}
+		
+		@media (max-width: 480px) {
+			.modern-menu-grid {
+				padding: 0 5px;
+			}
+			
+			.menu-image {
+				height: 180px;
+			}
+			
+			.menu-content {
+				padding: 15px;
+			}
+			
+			.menu-badge {
+				top: 10px;
+				right: 10px;
+				padding: 4px 10px;
+				font-size: 11px;
+			}
+		}
+	</style>
+	
+	<!--[if lt IE 9]>
+		<script src="js/html5/respond.min.js"></script>
+    <![endif]-->
+	
+</head>
+
+<body data-offset="200" data-spy="scroll" data-target=".ow-navigation">
+	<!-- Loader -->
+	<div id="site-loader" class="load-complete">
+		<div class="loader">
+			<div class="loader-inner ball-clip-rotate">
+				<div></div>
+			</div>
+		</div>
+	</div><!-- Loader /- -->
+	
+	
+
+	<!-- Header -->
+	<header class="header-main container-fluid no-padding">	
+		<!-- Navigation -->
+		<div class="menu-block container-fluid no-padding">
+			<!-- Container -->
+			<div class="container">
+				<nav class="navbar ow-navigation">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="index.html" title="Logo"><h3>Cokelat <img src="images/logo.png" alt="logo" class="rotating-logo"/> La</h3></a>
+					</div>
+					<div class="add-to-cart">
+						<ul class="cart">
+							<li>
+								<a aria-expanded="true" aria-haspopup="true" id="cart" class="btn" title="Pesan Online" href="#menu-section">Pesan Online</a>
+							</li>
+						</ul>
+					</div>
+					<div id="navbar" class="navbar-collapse collapse navbar-right">
+									
+					</div>
+				</nav><!-- Navigation -->
+			</div>
+		</div><!-- Container /- -->
+	</header><!-- Header /- -->
+	
+	<main class="site-main page-spacing">
+		<!-- Photo Slider -->
+		<div class="photo-slider container-fluid no-padding">
+			<!-- Main Carousel -->
+			<div id="main-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+				<div role="listbox" class="carousel-inner">
+					<div class="item active">
+						<img width="1920" height="1030" alt="slider" src="images/slider-1.jpg">
+						<div class="carousel-caption">
+							<!--<img data-animation="animated pulse" src="images/slider-ic.png" alt="slider-ic" width="121" height="124">-->
+						<!--	<p data-animation="animated bounceInLeft">Cokelat Premium </p>
+							<p data-animation="animated bounceInRight">Indonesia Terbaik</p>
+							<a title="Baca Selengkapnya" href="#" data-animation="animated bounceInUp">Baca Selengkapnya</a> -->
+						</div>
+					</div>
+					
+					<div class="item">
+						<img width="1920" height="1030" alt="slider" src="images/slider-2.jpg">
+					<!--	<div class="carousel-caption">
+							<img data-animation="animated pulse" src="images/slider-ic.png" alt="slider-ic" width="121" height="124">
+							<p data-animation="animated bounceInLeft">Cokelat Artisan </p>
+							<p data-animation="animated bounceInRight">Dibuat dengan Cinta</p>
+							<a title="Baca Selengkapnya" href="#" data-animation="animated bounceInUp">Baca Selengkapnya</a>
+						</div>-->
+					</div>
+					
+					<div class="item">
+						<img width="1920" height="1030" alt="slider" src="images/slider-3.jpg">
+					<!--	<div class="carousel-caption">
+							<img data-animation="animated pulse" src="images/slider-ic.png" alt="slider-ic" width="121" height="124">
+							<p data-animation="animated bounceInLeft">Dari Biji hingga Batangan </p>
+							<p data-animation="animated bounceInRight">Kelezatan Cokelat Murni</p>
+							<a title="Baca Selengkapnya" href="#" data-animation="animated bounceInUp">Baca Selengkapnya</a>
+						</div>-->
+					</div>
+					<a class="left carousel-control modern-carousel-btn" href="#main-carousel" role="button" data-slide="prev">
+						<div class="carousel-btn-inner">
+							<i class="fa fa-chevron-left" aria-hidden="true"></i>
+						</div>
+					</a>
+					<a class="right carousel-control modern-carousel-btn" href="#main-carousel" role="button" data-slide="next">
+						<div class="carousel-btn-inner">
+							<i class="fa fa-chevron-right" aria-hidden="true"></i>
+						</div>
+					</a>
+				</div>
+			</div><!-- Main Carousel /-  -->
+		</div><!-- Photo Slider /- -->
+		
+		<!-- Welcome Section -->
+		<div class="welcome-section container-fluid no-padding">
+			<div class="section-padding"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<img src="images/welcome.jpg" alt="welcome" width="457" height="700" />
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6 wc-content-box">
+						<div class="welcome-header">
+							<span>Cokelat-La</span><h5>AUTENTIK</h5> <h5>SEPANJANG MASA</h5>
+						</div>
+						<div class="welcome-content">
+							<div class="section-header left-header">
+								<h3>Tentang Kami</h3>
+								<h5>Perjalanan Cokelat Kami</h5>
+								<img src="images/section-seprator-1.png" alt="section-seprator" width="70" height="3">
+								<p>Cokelat-La menghadirkan cokelat premium yang lahir dari kekayaan alam Kalimantan Timur. Kami menggunakan biji kakao pilihan lokal dan mengolahnya dengan teknik artisan, sehingga setiap keping cokelat bukan hanya lezat, tetapi juga menyimpan cerita tentang tanah asalnya. Semangat kami untuk menjaga kualitas dan tradisi mendorong terciptanya cokelat yang merayakan warisan kakao Indonesia, sekaligus menjadi kebanggaan daerah serta simbol dedikasi kami dalam memperkenalkan cita rasa otentik Lung Anai ke seluruh nusantara dan dunia.</p>
+								<a href="#" title="Baca Selengkapnya" class="read-more">Baca Selengkapnya</a>
+							</div><!-- Section Header /-  -->
+						</div>
+					</div>
+				</div>
+			</div><!-- Container /- -->
+		</div><!-- Welcome Section /- -->
+		
+				
+		<!-- Menu Section -->
+		<div id="menu-section" class="menu-section container-fluid no-padding">
+			<div class="section-padding"></div>
+			<div class="container">
+				<div class="section-header">
+					<h3>Koleksi Cokelat Kami</h3>
+					<h5>PERMEN PREMIUM</h5>
+					<img src="images/section-seprator.png" alt="section-seprator" width="169" height="15">
+					<p>Temukan cita rasa khas Lung Anai melalui koleksi cokelat Cokelat-La, dibuat dengan penuh ketelitian dari biji kakao pilihan Kutai Kartanegara dan diolah dengan sentuhan artisan lokal yang menjaga warisan tradisi sekaligus menghadirkan kualitas premium.</p>
+				</div><!-- Section Header /-  -->
+				
+				<!-- Modern Menu Grid -->
+				<div class="modern-menu-grid">
+					<div class="menu-card">
+						<div class="menu-image">
+							<img src="images/menu-1.jpg" alt="Cokelat Cheese" />
+							<div class="menu-overlay">
+								<div class="menu-badge">Premium</div>
+							</div>
+						</div>
+						<div class="menu-content">
+							<div class="menu-header">
+								<h4>Cokelat Cheese</h4>
+								<div class="menu-price">Rp 25.000</div>
+							</div>
+							<p class="menu-description">Cokelat keju dengan lapisan ganache keju yang lembut dan cokelat hitam 70% di bagian luar.</p>
+							<button class="menu-order-btn" data-product="Cokelat Cheese" data-price="Rp 25.000" title="Pesan Sekarang">
+								<span class="btn-icon">></span>
+								<span class="btn-text">Pesan Sekarang</span>
+							</button>
+						</div>
+					</div>
+
+					<div class="menu-card">
+						<div class="menu-image">
+							<img src="images/menu-2.jpg" alt="Cokelat Cashew Nut" />
+							<div class="menu-overlay">
+								<div class="menu-badge">Favorit</div>
+							</div>
+						</div>
+						<div class="menu-content">
+							<div class="menu-header">
+								<h4>Cokelat Cashew Nut</h4>
+								<div class="menu-price">Rp 27.000</div>
+							</div>
+							<p class="menu-description">Cokelat susu lembut dengan isian kacang mete yang renyah.</p>
+							<button class="menu-order-btn" data-product="Cokelat Cashew Nut" data-price="Rp 27.000" title="Pesan Sekarang">
+								<span class="btn-icon">></span>
+								<span class="btn-text">Pesan Sekarang</span>
+							</button>
+						</div>
+					</div>
+
+					<div class="menu-card">
+						<div class="menu-image">
+							<img src="images/menu-3.jpg" alt="Cokelat Hitam" />
+							<div class="menu-overlay">
+								<div class="menu-badge">Original</div>
+							</div>
+						</div>
+						<div class="menu-content">
+							<div class="menu-header">
+								<h4>Cokelat Hitam</h4>
+								<div class="menu-price">Rp 25.000</div>
+							</div>
+							<p class="menu-description">Cokelat hitam 70% dengan aroma dan rasa yang kaya.</p>
+							<button class="menu-order-btn" data-product="Cokelat Hitam" data-price="Rp 25.000" title="Pesan Sekarang">
+								<span class="btn-icon">></span>
+								<span class="btn-text">Pesan Sekarang</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div><!-- Container /- -->
+		</div><!-- Menu Section /- -->
+		<div class="section-padding"></div>
+		
+		<!-- Team Section -->
+		<div class="team-section container-fluid no-padding">
+			<div class="section-padding"></div>
+			<div class="container">
+				<div class="row">
+					<!-- Main Carousel -->
+					<div id="main-carousel1" class="carousel slide carousel-fade" data-ride="carousel">
+						<div role="listbox" class="carousel-inner">
+							<div class="item active">
+								<div class="team-content">
+									<div class="col-md-6 col-sm-6 col-xs-6">
+										<img src="images/team.jpg" alt="team" width="468" height="595" />
+									</div>
+									<div class="col-md-6 col-sm-6 col-xs-6">
+										<div class="section-header left-header">
+											<h3>Kenali Tim Kami</h3>
+											<h5>ARTISAN COKELAT</h5>
+											<img src="images/section-seprator-1.png" alt="section-seprator" width="70" height="3">
+											<p>Para pengrajin cokelat di Rumah Cokelat Lung Anai adalah putra-putri daerah yang dengan penuh dedikasi mengolah kakao asli Kutai Kartanegara. Dari proses pemilihan biji kakao terbaik, fermentasi, hingga pengolahan menjadi cokelat siap saji, tim kami memastikan setiap produk menghadirkan cita rasa otentik khas Lung Anai.
+
+Dengan semangat menjaga warisan lokal sekaligus menghadirkan inovasi modern, kami berkomitmen menjadikan cokelat dari Lung Anai sebagai kebanggaan Kalimantan Timur dan Indonesia.</p>
+										</div><!-- Section Header /-  -->
+										<div class="team-contact-info">
+											<h5>Sigiet</h5>
+											<ul>
+												<li><a href="#" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+												<li><a href="#" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+												<li><a href="#" title="Google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+												<li><a href="#" title="linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+												<li><a href="#" title="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+											</ul>
+											<p><a href="mailto:cokelat-la@gmail.com" title="cokelat-la@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i>cokelat-la@gmail.com</a></p>
+											<p><a href="tel:1-800-23-456-7890" title="1-800-23-456-7890"><i class="fa fa-phone" aria-hidden="true"></i>Phone: +62-852-5151-4441</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+			
+						</div>
+				</div><!-- Main Carousel /-  -->
+				</div>
+			</div><!-- Container /- -->
+		</div><!-- Team Section /- -->
+			
+		
+		
+
+	</main>
+	
+	<footer class="footer-main container-fluid no-padding">		
+		<div class="footer-content container">
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<div class="about-footer">
+					<h3>Cokelat<img src="images/logo.png" alt="logo" class="rotating-logo"/>La</h3>
+					<p>Nikmati sensasi cokelat-La diolah dengan cita rasa khas Kutai Kartanegara. Setiap gigitan menghadirkan kelezatan alami yang dipadukan dengan kualitas terbaik dari kakao lokal.</p>
+					<a href="contact-2.html" title="Contact" class="about-links">Contact</a>
+				</div>
+			</div>
+			
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<div class="about-footer">
+					<h5>Order online</h5>
+					<p>Pesan cokelat favorit Anda langsung dari Cokelat-La. Kami menghadirkan berbagai varian cokelat premium yang bisa Anda nikmati di rumah, dengan layanan cepat dan praktis.</p>
+					<a href="#" title="Order Now" class="about-links order">Order Now</a>
+				</div>
+			</div>
+			
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<div class="about-footer">
+					<h5>Cokelat-La</h5>
+					<p>Lung Anai, Loa Kulu, Kutai Kartanegara Regency, East Kalimantan</p>
+					<ul>
+						<li><a href="#" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a href="#" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<li><a href="#" title="Google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+						<li><a href="#" title="Dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>	
+	</footer>
+	
+	<!-- Bottom Footer -->
+	<div class="bottom-footer container-fluid no-padding">
+		<div class="container">
+			<div class="footer-copyright">
+				<p>&copy; Copyrights 2025 CokelatLa. All Rights Reserved</p>
+			</div>
+
+	</div><!-- Bottom Footer /- -->
+
+	<!-- JQuery v1.11.3 -->
+	<script src="js/jquery.min.js"></script>
+
+	<!-- Library - Js -->
+	<script src="libraries/lib.js"></script><!-- Bootstrap JS File v3.3.5 -->
+
+	<!-- Library - Google Map API -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDW40y4kdsjsz714OVTvrw7woVCpD8EbLE"></script>
+	
+	<!-- Library - Theme JS -->
+	<script src="js/functions.js"></script>
+	
+	<!-- Custom Order Functionality -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			// WhatsApp number for orders - Cokelat-La
+			const whatsappNumber = '6285251514441'; // +62 852-5151-4441
+			
+			// Get all order buttons (both old and new style)
+			const orderButtons = document.querySelectorAll('.menu-box a[title="Pesan Sekarang"], .menu-order-btn');
+			
+			orderButtons.forEach(function(button) {
+				button.addEventListener('click', function(e) {
+					e.preventDefault();
+					
+					let productName, productPrice, productDescription;
+					
+					// Check if it's new style button or old style
+					if (this.classList.contains('menu-order-btn')) {
+						// New style - get from data attributes
+						productName = this.getAttribute('data-product');
+						productPrice = this.getAttribute('data-price');
+						const menuCard = this.closest('.menu-card');
+						productDescription = menuCard.querySelector('.menu-description').textContent.trim();
+					} else {
+						// Old style - get from menu-box
+						const menuBox = this.closest('.menu-box');
+						productName = menuBox.querySelector('h3').childNodes[0].textContent.trim();
+						productPrice = menuBox.querySelector('h3 span').textContent.trim();
+						productDescription = menuBox.querySelector('p').textContent.trim();
+					}
+					
+					// Show quantity selector modal
+					showQuantityModal(productName, productPrice, productDescription);
+				});
+			});
+			
+			// Function to show quantity selector modal
+			function showQuantityModal(productName, productPrice, productDescription) {
+				// Create modal HTML
+				const modalHTML = `
+					<div id="quantityModal" style="
+						position: fixed;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						background: rgba(0,0,0,0.6);
+						backdrop-filter: blur(8px);
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						z-index: 10000;
+						opacity: 0;
+						animation: fadeIn 0.3s ease forwards;
+					">
+						<div style="
+							background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+							padding: 0;
+							border-radius: 20px;
+							text-align: center;
+							max-width: 380px;
+							width: 90%;
+							box-shadow: 0 20px 60px rgba(0,0,0,0.1), 0 8px 25px rgba(0,0,0,0.08);
+							border: 1px solid rgba(255,255,255,0.2);
+							overflow: hidden;
+							transform: scale(0.9);
+							animation: scaleIn 0.3s ease forwards;
+						">
+							<!-- Close Button -->
+							<button id="closeModal" style="
+								position: absolute;
+								top: 15px;
+								right: 15px;
+								background: none;
+								border: none;
+								font-size: 24px;
+								color: #aaa;
+								cursor: pointer;
+								width: 30px;
+								height: 30px;
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								border-radius: 50%;
+								transition: all 0.2s ease;
+							" onmouseover="this.style.background='#f0f0f0'; this.style.color='#666';" onmouseout="this.style.background='none'; this.style.color='#aaa';">×</button>
+							
+							<!-- Header Section -->
+							<div style="
+								padding: 40px 30px 20px;
+								border-bottom: 1px solid #f0f0f0;
+							">
+								<h3 style="
+									margin: 0 0 8px 0; 
+									color: #2c3e50; 
+									font-family: 'Poppins', sans-serif;
+									font-weight: 600;
+									font-size: 18px;
+									line-height: 1.3;
+									letter-spacing: -0.3px;
+								">${productName}</h3>
+								<div style="
+									color: #8b4513; 
+									font-weight: 600;
+									font-size: 20px;
+									margin-bottom: 8px;
+								">${productPrice}</div>
+								<p style="
+									margin: 0; 
+									color: #7f8c8d; 
+									font-size: 13px;
+									line-height: 1.4;
+									opacity: 0.8;
+								">${productDescription}</p>
+							</div>
+							
+							<!-- Quantity Section -->
+							<div style="padding: 30px;">
+								<div style="
+									margin-bottom: 25px;
+								">
+									<div style="
+										display: flex; 
+										justify-content: center; 
+										align-items: center; 
+										gap: 0;
+										background: #f8f9fa;
+										border-radius: 50px;
+										padding: 4px;
+										width: fit-content;
+										margin: 0 auto;
+									">
+										<button id="decreaseQty" style="
+											width: 44px;
+											height: 44px;
+											border: none;
+											background: white;
+											color: #6c757d;
+											border-radius: 50%;
+											font-size: 18px;
+											font-weight: 400;
+											cursor: pointer;
+											transition: all 0.2s ease;
+											display: flex;
+											align-items: center;
+											justify-content: center;
+											box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+										" onmouseover="this.style.background='#e9ecef'; this.style.transform='scale(1.05)';" onmouseout="this.style.background='white'; this.style.transform='scale(1)';">−</button>
+										<div style="
+											width: 80px;
+											height: 44px;
+											display: flex;
+											align-items: center;
+											justify-content: center;
+											background: white;
+											margin: 0 8px;
+											border-radius: 22px;
+											box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+										">
+											<input type="number" id="quantity" value="1" min="1" max="50" style="
+												width: 60px;
+												height: 30px;
+												text-align: center;
+												border: none;
+												background: transparent;
+												font-size: 16px;
+												font-weight: 600;
+												color: #2c3e50;
+												outline: none;
+											">
+										</div>
+										<button id="increaseQty" style="
+											width: 44px;
+											height: 44px;
+											border: none;
+											background: #8b4513;
+											color: white;
+											border-radius: 50%;
+											font-size: 18px;
+											font-weight: 400;
+											cursor: pointer;
+											transition: all 0.2s ease;
+											display: flex;
+											align-items: center;
+											justify-content: center;
+											box-shadow: 0 4px 12px rgba(139,69,19,0.3);
+										" onmouseover="this.style.background='#a0522d'; this.style.transform='scale(1.05)';" onmouseout="this.style.background='#8b4513'; this.style.transform='scale(1)';">+</button>
+									</div>
+								</div>
+								
+								<!-- Action Buttons -->
+								<div style="display: flex; gap: 12px; justify-content: center;">
+									<button id="cancelOrder" style="
+										padding: 14px 24px;
+										border: 1px solid #e9ecef;
+										background: white;
+										color: #6c757d;
+										border-radius: 25px;
+										cursor: pointer;
+										font-size: 14px;
+										font-weight: 500;
+										transition: all 0.2s ease;
+										min-width: 100px;
+									" onmouseover="this.style.background='#f8f9fa'; this.style.borderColor='#dee2e6';" onmouseout="this.style.background='white'; this.style.borderColor='#e9ecef';">Batal</button>
+									<button id="confirmOrder" style="
+										padding: 14px 24px;
+										border: none;
+										background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+										color: white;
+										border-radius: 25px;
+										cursor: pointer;
+										font-size: 14px;
+										font-weight: 500;
+										transition: all 0.2s ease;
+										box-shadow: 0 4px 15px rgba(139,69,19,0.3);
+										min-width: 140px;
+									" onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 6px 20px rgba(139,69,19,0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(139,69,19,0.3)';">
+										<span style="margin-right: 6px;">💬</span>Pesan Sekarang
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<style>
+						@keyframes fadeIn {
+							to { opacity: 1; }
+						}
+						@keyframes scaleIn {
+							to { transform: scale(1); }
+						}
+					</style>
+				`;
+				
+				// Add modal to page
+				document.body.insertAdjacentHTML('beforeend', modalHTML);
+				
+				// Get modal elements
+				const modal = document.getElementById('quantityModal');
+				const quantityInput = document.getElementById('quantity');
+				const decreaseBtn = document.getElementById('decreaseQty');
+				const increaseBtn = document.getElementById('increaseQty');
+				const cancelBtn = document.getElementById('cancelOrder');
+				const confirmBtn = document.getElementById('confirmOrder');
+				const closeBtn = document.getElementById('closeModal');
+				
+				// Quantity controls
+				decreaseBtn.addEventListener('click', function() {
+					const currentValue = parseInt(quantityInput.value);
+					if (currentValue > 1) {
+						quantityInput.value = currentValue - 1;
+					}
+				});
+				
+				increaseBtn.addEventListener('click', function() {
+					const currentValue = parseInt(quantityInput.value);
+					if (currentValue < 50) {
+						quantityInput.value = currentValue + 1;
+					}
+				});
+				
+				// Cancel button
+				cancelBtn.addEventListener('click', function() {
+					modal.style.opacity = '0';
+					modal.querySelector('div').style.transform = 'scale(0.9)';
+					setTimeout(() => document.body.removeChild(modal), 300);
+				});
+				
+				// Close button
+				closeBtn.addEventListener('click', function() {
+					modal.style.opacity = '0';
+					modal.querySelector('div').style.transform = 'scale(0.9)';
+					setTimeout(() => document.body.removeChild(modal), 300);
+				});
+				
+				// Confirm order button
+				confirmBtn.addEventListener('click', function() {
+					const quantity = parseInt(quantityInput.value);
+					
+					// Extract numeric price for calculation
+					const numericPrice = productPrice.replace(/[^\d]/g, '');
+					const totalPrice = parseInt(numericPrice) * quantity;
+					const formattedTotalPrice = 'Rp ' + totalPrice.toLocaleString('id-ID');
+					
+					// Create WhatsApp message with quantity
+					const message = `Halo Cokelat-La! 🍫
+
+Saya ingin memesan:
+📦 *${productName}*
+🔢 Jumlah: ${quantity} pcs
+💰 Harga Satuan: ${productPrice}
+💸 Total Harga: ${formattedTotalPrice}
+📝 Deskripsi: ${productDescription}
+
+Mohon konfirmasi ketersediaan dan proses pemesanannya.
+
+Terima kasih! 😊`;
+					
+					// Encode message for URL
+					const encodedMessage = encodeURIComponent(message);
+					
+					// Create WhatsApp URL
+					const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+					
+					// Open WhatsApp
+					window.open(whatsappUrl, '_blank');
+					
+					// Close modal with animation
+					modal.style.opacity = '0';
+					modal.querySelector('div').style.transform = 'scale(0.9)';
+					setTimeout(() => document.body.removeChild(modal), 300);
+				});
+				
+				// Close modal when clicking outside
+				modal.addEventListener('click', function(e) {
+					if (e.target === modal) {
+						modal.style.opacity = '0';
+						modal.querySelector('div').style.transform = 'scale(0.9)';
+						setTimeout(() => document.body.removeChild(modal), 300);
+					}
+				});
+			}
+		});
+	</script>
+</body>
+</html>
