@@ -298,43 +298,16 @@
 			transform: scale(0.95);
 		}
 		
-		/* Carousel Controls Mobile */
+		/* Carousel Controls Mobile - Hidden for clean mobile experience */
 		@media (max-width: 768px) {
 			.modern-carousel-btn {
-				width: 50px;
-				height: 50px;
-				opacity: 0.9;
-			}
-			
-			.modern-carousel-btn.left {
-				left: 15px;
-			}
-			
-			.modern-carousel-btn.right {
-				right: 15px;
-			}
-			
-			.modern-carousel-btn i {
-				font-size: 16px;
+				display: none !important;
 			}
 		}
 		
 		@media (max-width: 480px) {
 			.modern-carousel-btn {
-				width: 45px;
-				height: 45px;
-			}
-			
-			.modern-carousel-btn.left {
-				left: 10px;
-			}
-			
-			.modern-carousel-btn.right {
-				right: 10px;
-			}
-			
-			.modern-carousel-btn i {
-				font-size: 14px;
+				display: none !important;
 			}
 		}
 		
@@ -500,6 +473,501 @@
 			}
 		}
 		
+		/* Interactive Welcome Image Styles */
+		.welcome-image-container {
+			position: relative;
+			overflow: hidden;
+			border-radius: 20px;
+			box-shadow: 0 15px 35px rgba(139,69,19,0.2), 0 5px 15px rgba(0,0,0,0.1);
+			transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+			background: linear-gradient(45deg, #f8f9fa, #ffffff);
+			padding: 8px;
+		}
+		
+		.welcome-image-container:hover {
+			transform: translateY(-10px) rotateY(5deg);
+			box-shadow: 0 25px 50px rgba(139,69,19,0.3), 0 10px 25px rgba(0,0,0,0.15);
+		}
+		
+		.welcome-interactive-img {
+			width: 100%;
+			height: auto;
+			display: block;
+			border-radius: 15px;
+			transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+			position: relative;
+			z-index: 1;
+		}
+		
+		.welcome-image-container:hover .welcome-interactive-img {
+			transform: scale(1.05);
+			filter: brightness(1.1) contrast(1.1) saturate(1.2);
+		}
+		
+		.welcome-overlay {
+			position: absolute;
+			top: 8px;
+			left: 8px;
+			right: 8px;
+			bottom: 8px;
+			background: linear-gradient(135deg, 
+				rgba(139,69,19,0.8) 0%, 
+				rgba(101,67,33,0.7) 50%, 
+				rgba(139,69,19,0.8) 100%);
+			border-radius: 15px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			opacity: 0;
+			transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+			backdrop-filter: blur(10px);
+			z-index: 2;
+		}
+		
+		.welcome-image-container:hover .welcome-overlay {
+			opacity: 1;
+			animation: overlayPulse 2s ease-in-out infinite;
+		}
+		
+		.welcome-hover-content {
+			text-align: center;
+			color: white;
+			padding: 30px;
+			transform: translateY(30px);
+			transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+		}
+		
+		.welcome-image-container:hover .welcome-hover-content {
+			transform: translateY(0);
+		}
+		
+		.welcome-hover-content h4 {
+			font-size: 24px;
+			font-weight: 700;
+			margin: 0 0 10px 0;
+			text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+			animation: textGlow 2s ease-in-out infinite alternate;
+		}
+		
+		.welcome-hover-content p {
+			font-size: 14px;
+			margin: 0;
+			opacity: 0.9;
+			text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+			font-weight: 500;
+			letter-spacing: 0.5px;
+		}
+		
+		/* Welcome Image Animations */
+		@keyframes overlayPulse {
+			0%, 100% {
+				background: linear-gradient(135deg, 
+					rgba(139,69,19,0.8) 0%, 
+					rgba(101,67,33,0.7) 50%, 
+					rgba(139,69,19,0.8) 100%);
+			}
+			50% {
+				background: linear-gradient(135deg, 
+					rgba(139,69,19,0.9) 0%, 
+					rgba(101,67,33,0.8) 50%, 
+					rgba(139,69,19,0.9) 100%);
+			}
+		}
+		
+		@keyframes textGlow {
+			0% {
+				text-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.1);
+			}
+			100% {
+				text-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 0 30px rgba(255,255,255,0.3);
+			}
+		}
+		
+		/* Image Floating Effect */
+		.welcome-interactive-img {
+			animation: gentleFloat 6s ease-in-out infinite;
+		}
+		
+		@keyframes gentleFloat {
+			0%, 100% { 
+				transform: translateY(0); 
+			}
+			25% { 
+				transform: translateY(-5px); 
+			}
+			50% { 
+				transform: translateY(0); 
+			}
+			75% { 
+				transform: translateY(-3px); 
+			}
+		}
+		
+		/* Image Border Glow Effect */
+		.welcome-image-container::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: linear-gradient(45deg, 
+				#8B4513, #654321, #8B4513, #654321);
+			border-radius: 20px;
+			padding: 2px;
+			z-index: 0;
+			opacity: 0;
+			transition: opacity 0.5s ease;
+			animation: borderRotate 4s linear infinite;
+		}
+		
+		.welcome-image-container:hover::before {
+			opacity: 0.6;
+		}
+		
+		@keyframes borderRotate {
+			0% { 
+				background: linear-gradient(45deg, #8B4513, #654321, #8B4513, #654321); 
+			}
+			25% { 
+				background: linear-gradient(135deg, #8B4513, #654321, #8B4513, #654321); 
+			}
+			50% { 
+				background: linear-gradient(225deg, #8B4513, #654321, #8B4513, #654321); 
+			}
+			75% { 
+				background: linear-gradient(315deg, #8B4513, #654321, #8B4513, #654321); 
+			}
+			100% { 
+				background: linear-gradient(45deg, #8B4513, #654321, #8B4513, #654321); 
+			}
+		}
+		
+		/* Mobile Welcome Image Adjustments */
+		@media (max-width: 768px) {
+			.welcome-image-container {
+				margin-bottom: 30px;
+				border-radius: 15px;
+			}
+			
+			.welcome-image-container:hover {
+				transform: translateY(-5px);
+			}
+			
+			.welcome-hover-content h4 {
+				font-size: 20px;
+			}
+			
+			.welcome-hover-content p {
+				font-size: 13px;
+			}
+			
+			.welcome-interactive-img {
+				animation: none; /* Disable floating on mobile for performance */
+			}
+		}
+		
+		@media (max-width: 480px) {
+			.welcome-image-container {
+				border-radius: 12px;
+				padding: 6px;
+			}
+			
+			.welcome-overlay {
+				top: 6px;
+				left: 6px;
+				right: 6px;
+				bottom: 6px;
+				border-radius: 12px;
+			}
+			
+			.welcome-hover-content {
+				padding: 20px;
+			}
+			
+			.welcome-hover-content h4 {
+				font-size: 18px;
+			}
+			
+			.welcome-hover-content p {
+				font-size: 12px;
+			}
+		}
+		
+		/* Advanced Loading Screen Styles */
+		#site-loader {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 99999;
+			transition: opacity 0.8s ease, visibility 0.8s ease;
+		}
+		
+		#site-loader.load-complete {
+			opacity: 0;
+			visibility: hidden;
+		}
+		
+		.loader-backdrop {
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(135deg, 
+				#1a1a2e 0%, 
+				#16213e 25%, 
+				#0f3460 50%, 
+				#16213e 75%, 
+				#1a1a2e 100%);
+			position: relative;
+			overflow: hidden;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		
+		/* Animated Background Particles */
+		.particles-container {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		
+		.particle {
+			position: absolute;
+			background: rgba(139,69,19,0.6);
+			border-radius: 50%;
+			animation: floatParticles 8s infinite linear;
+		}
+		
+		.particle:nth-child(1) {
+			width: 4px;
+			height: 4px;
+			left: 10%;
+			animation-delay: 0s;
+			animation-duration: 6s;
+		}
+		
+		.particle:nth-child(2) {
+			width: 6px;
+			height: 6px;
+			left: 20%;
+			animation-delay: 1s;
+			animation-duration: 8s;
+		}
+		
+		.particle:nth-child(3) {
+			width: 3px;
+			height: 3px;
+			left: 40%;
+			animation-delay: 2s;
+			animation-duration: 7s;
+		}
+		
+		.particle:nth-child(4) {
+			width: 5px;
+			height: 5px;
+			left: 60%;
+			animation-delay: 3s;
+			animation-duration: 9s;
+		}
+		
+		.particle:nth-child(5) {
+			width: 4px;
+			height: 4px;
+			left: 80%;
+			animation-delay: 4s;
+			animation-duration: 6s;
+		}
+		
+		.particle:nth-child(6) {
+			width: 7px;
+			height: 7px;
+			left: 90%;
+			animation-delay: 5s;
+			animation-duration: 8s;
+		}
+		
+		@keyframes floatParticles {
+			0% {
+				transform: translateY(100vh) rotate(0deg);
+				opacity: 0;
+			}
+			10% {
+				opacity: 1;
+			}
+			90% {
+				opacity: 1;
+			}
+			100% {
+				transform: translateY(-100vh) rotate(360deg);
+				opacity: 0;
+			}
+		}
+		
+		/* Main Loader Content */
+		.loader-content {
+			text-align: center;
+			color: white;
+			z-index: 10;
+			position: relative;
+		}
+		
+
+		
+		/* Chocolate Drops Animation */
+		.loader-animation {
+			margin-bottom: 30px;
+		}
+		
+		.chocolate-drops {
+			display: flex;
+			justify-content: center;
+			gap: 8px;
+		}
+		
+		.drop {
+			width: 12px;
+			height: 12px;
+			background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+			border-radius: 50% 50% 50% 0;
+			transform: rotate(-45deg);
+			animation: dropBounce 1.5s ease-in-out infinite;
+			box-shadow: 0 0 15px rgba(139,69,19,0.6);
+		}
+		
+		.drop:nth-child(1) { animation-delay: 0s; }
+		.drop:nth-child(2) { animation-delay: 0.2s; }
+		.drop:nth-child(3) { animation-delay: 0.4s; }
+		
+		@keyframes dropBounce {
+			0%, 100% {
+				transform: rotate(-45deg) translateY(0);
+				opacity: 0.7;
+			}
+			50% {
+				transform: rotate(-45deg) translateY(-20px);
+				opacity: 1;
+				box-shadow: 0 0 25px rgba(139,69,19,0.8);
+			}
+		}
+		
+		/* Loading Text */
+		.loader-text {
+			margin-bottom: 40px;
+		}
+		
+		.loading-message {
+			font-size: 18px;
+			font-weight: 300;
+			margin: 0 0 15px 0;
+			color: rgba(255,255,255,0.9);
+			letter-spacing: 1px;
+			animation: textFadeInOut 3s ease-in-out infinite;
+		}
+		
+		.loading-dots {
+			display: flex;
+			justify-content: center;
+			gap: 8px;
+		}
+		
+		.loading-dots span {
+			width: 8px;
+			height: 8px;
+			background: #8B4513;
+			border-radius: 50%;
+			animation: dotPulse 1.5s ease-in-out infinite;
+			box-shadow: 0 0 10px rgba(139,69,19,0.5);
+		}
+		
+		.loading-dots span:nth-child(1) { animation-delay: 0s; }
+		.loading-dots span:nth-child(2) { animation-delay: 0.3s; }
+		.loading-dots span:nth-child(3) { animation-delay: 0.6s; }
+		
+		@keyframes textFadeInOut {
+			0%, 100% { opacity: 0.7; }
+			50% { opacity: 1; }
+		}
+		
+		@keyframes dotPulse {
+			0%, 100% {
+				transform: scale(0.8);
+				opacity: 0.6;
+			}
+			50% {
+				transform: scale(1.2);
+				opacity: 1;
+			}
+		}
+		
+		/* Progress Bar */
+		.progress-container {
+			width: 300px;
+			margin: 0 auto;
+		}
+		
+		.progress-bar {
+			width: 100%;
+			height: 4px;
+			background: rgba(255,255,255,0.2);
+			border-radius: 2px;
+			overflow: hidden;
+			position: relative;
+			margin-bottom: 15px;
+		}
+		
+		.progress-fill {
+			height: 100%;
+			background: linear-gradient(90deg, 
+				#8B4513 0%, 
+				#CD853F 50%, 
+				#8B4513 100%);
+			border-radius: 2px;
+			width: 0%;
+			animation: progressFill 4s ease-out forwards;
+			box-shadow: 0 0 15px rgba(139,69,19,0.6);
+		}
+		
+		.progress-percentage {
+			font-size: 14px;
+			color: rgba(255,255,255,0.8);
+			font-weight: 300;
+		}
+		
+		@keyframes progressFill {
+			0% { width: 0%; }
+			100% { width: 100%; }
+		}
+		
+		/* Mobile Loading Screen */
+		@media (max-width: 768px) {
+			.loading-message {
+				font-size: 16px;
+			}
+			
+			.progress-container {
+				width: 250px;
+			}
+		}
+		
+		@media (max-width: 480px) {
+			.loading-message {
+				font-size: 14px;
+			}
+			
+			.progress-container {
+				width: 200px;
+			}
+			
+			.particles-container {
+				display: none; /* Disable particles on small screens for performance */
+			}
+		}
+		
 		/* Mobile Responsive */
 		@media (max-width: 768px) {
 			.modern-menu-grid {
@@ -577,14 +1045,50 @@
 </head>
 
 <body data-offset="200" data-spy="scroll" data-target=".ow-navigation">
-	<!-- Loader -->
-	<div id="site-loader" class="load-complete">
-		<div class="loader">
-			<div class="loader-inner ball-clip-rotate">
-				<div></div>
+	<!-- Advanced Loading Screen -->
+	<div id="site-loader" class="">
+		<div class="loader-backdrop">
+			<!-- Background Particles -->
+			<div class="particles-container">
+				<div class="particle"></div>
+				<div class="particle"></div>
+				<div class="particle"></div>
+				<div class="particle"></div>
+				<div class="particle"></div>
+				<div class="particle"></div>
+			</div>
+			
+			<!-- Main Loader Content -->
+			<div class="loader-content">
+				<!-- Loading Animation -->
+				<div class="loader-animation">
+					<div class="chocolate-drops">
+						<div class="drop"></div>
+						<div class="drop"></div>
+						<div class="drop"></div>
+					</div>
+				</div>
+				
+				<!-- Loading Text -->
+				<div class="loader-text">
+					<p class="loading-message">Menyiapkan Kelezatan Premium...</p>
+					<div class="loading-dots">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</div>
+				
+				<!-- Progress Bar -->
+				<div class="progress-container">
+					<div class="progress-bar">
+						<div class="progress-fill"></div>
+					</div>
+					<div class="progress-percentage">0%</div>
+				</div>
 			</div>
 		</div>
-	</div><!-- Loader /- -->
+	</div><!-- Advanced Loading Screen /- -->
 	
 	
 
@@ -674,7 +1178,15 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 col-sm-6 col-xs-6">
-						<img src="images/welcome.jpg" alt="welcome" width="457" height="700" />
+						<div class="welcome-image-container">
+							<img src="images/welcome.jpg" alt="welcome" width="457" height="700" class="welcome-interactive-img" />
+							<div class="welcome-overlay">
+								<div class="welcome-hover-content">
+									<h4>Cokelat Premium</h4>
+									<p>Selamat datang di Cokelat-La. Nikmati cokelat premium khas Lung Anai, diracik dari kakao pilihan Kalimantan Timur, autentik, lembut, dan memanjakan.</p>
+								</div>
+							</div>
+						</div>
 					</div>
 					<div class="col-md-6 col-sm-6 col-xs-6 wc-content-box">
 						<div class="welcome-header">
@@ -828,7 +1340,7 @@ Dengan semangat menjaga warisan lokal sekaligus menghadirkan inovasi modern, kam
 				<div class="about-footer">
 					<h3>Cokelat<img src="images/logo.png" alt="logo" class="rotating-logo"/>La</h3>
 					<p>Nikmati sensasi cokelat-La diolah dengan cita rasa khas Kutai Kartanegara. Setiap gigitan menghadirkan kelezatan alami yang dipadukan dengan kualitas terbaik dari kakao lokal.</p>
-					<a href="contact-2.html" title="Contact" class="about-links">Contact</a>
+					<a href="" title="Contact" class="about-links">Contact</a>
 				</div>
 			</div>
 			
@@ -878,8 +1390,23 @@ Dengan semangat menjaga warisan lokal sekaligus menghadirkan inovasi modern, kam
 	
 	<!-- Custom Order Functionality -->
 	<script>
+		/*
+		Contoh implementasi sederhana WhatsApp:
+		
+		HTML:
+		<button id="orderCheese">Pesan Sekarang</button>
+		
+		JavaScript:
+		document.getElementById('orderCheese').addEventListener('click', () => {
+		  const phone = '6281234567890'; // ganti nomor admin
+		  const msg = 'Halo Admin, saya mau pesan Cokelat Cheese 1 box.';
+		  const url = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(msg);
+		  window.open(url, '_blank', 'noopener');
+		});
+		*/
+		
 		document.addEventListener('DOMContentLoaded', function() {
-			// WhatsApp number for orders - Cokelat-La
+			// WhatsApp number for orders - Cokelat-La (format: 62xxxxxxxxxx)
 			const whatsappNumber = '6285251514441'; // +62 852-5151-4441
 			
 			// Get all order buttons (both old and new style)
@@ -1176,11 +1703,11 @@ Terima kasih! 😊`;
 					// Encode message for URL
 					const encodedMessage = encodeURIComponent(message);
 					
-					// Create WhatsApp URL
-					const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+					// Create WhatsApp URL using improved method
+					const whatsappUrl = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(message);
 					
-					// Open WhatsApp
-					window.open(whatsappUrl, '_blank');
+					// Open WhatsApp with enhanced security
+					window.open(whatsappUrl, '_blank', 'noopener');
 					
 					// Close modal with animation
 					modal.style.opacity = '0';
@@ -1197,6 +1724,90 @@ Terima kasih! 😊`;
 					}
 				});
 			}
+		});
+		
+		// Advanced Loading Screen Controller
+		document.addEventListener('DOMContentLoaded', function() {
+			const loader = document.getElementById('site-loader');
+			const progressFill = document.querySelector('.progress-fill');
+			const progressPercentage = document.querySelector('.progress-percentage');
+			const loadingMessages = [
+				'Menyiapkan Kelezatan Premium...',
+				'Mengolah Biji Kakao Terbaik...',
+				'Menciptakan Cita Rasa Autentik...',
+				'Memadukan Tradisi & Inovasi...',
+				'Siap Menyajikan Cokelat-La!'
+			];
+			
+			let currentProgress = 0;
+			let messageIndex = 0;
+			
+			// Update loading message
+			function updateLoadingMessage() {
+				const messageElement = document.querySelector('.loading-message');
+				if (messageElement && messageIndex < loadingMessages.length) {
+					messageElement.style.opacity = '0';
+					setTimeout(() => {
+						messageElement.textContent = loadingMessages[messageIndex];
+						messageElement.style.opacity = '1';
+						messageIndex++;
+					}, 300);
+				}
+			}
+			
+			// Simulate loading progress
+			function updateProgress() {
+				const increment = Math.random() * 15 + 5; // Random increment between 5-20
+				currentProgress = Math.min(currentProgress + increment, 100);
+				
+				if (progressFill) {
+					progressFill.style.width = currentProgress + '%';
+				}
+				if (progressPercentage) {
+					progressPercentage.textContent = Math.round(currentProgress) + '%';
+				}
+				
+				// Update message every 20% progress
+				if (currentProgress > messageIndex * 20 && messageIndex < loadingMessages.length) {
+					updateLoadingMessage();
+				}
+				
+				if (currentProgress >= 100) {
+					// Loading complete
+					setTimeout(() => {
+						loader.classList.add('load-complete');
+						// Enable scrolling after loading
+						document.body.style.overflow = 'auto';
+					}, 500);
+				} else {
+					// Continue loading
+					const delay = Math.random() * 200 + 100; // Random delay between 100-300ms
+					setTimeout(updateProgress, delay);
+				}
+			}
+			
+			// Disable scrolling during loading
+			document.body.style.overflow = 'hidden';
+			
+			// Start loading simulation
+			setTimeout(() => {
+				updateLoadingMessage();
+				updateProgress();
+			}, 800);
+			
+			// Fallback: Force complete loading after 6 seconds
+			setTimeout(() => {
+				if (!loader.classList.contains('load-complete')) {
+					currentProgress = 100;
+					if (progressFill) progressFill.style.width = '100%';
+					if (progressPercentage) progressPercentage.textContent = '100%';
+					
+					setTimeout(() => {
+						loader.classList.add('load-complete');
+						document.body.style.overflow = 'auto';
+					}, 300);
+				}
+			}, 6000);
 		});
 	</script>
 </body>
